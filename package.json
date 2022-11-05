@@ -1,0 +1,16 @@
+{
+  "name": "firebase-realtime-database-tests",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "luarrekcah",
+  "license": "ISC",
+  "dependencies": {
+    "@firebase/app": "^0.8.3",
+    "@firebase/database": "^0.13.10",
+    "dotenv": "^16.0.3"
+  }
+}
