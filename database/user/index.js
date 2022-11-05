@@ -17,6 +17,9 @@ module.exports = {
             console.log(error);
         });
     },
+    /**
+     * @param string [username, email, imageUrl] - Set's users with id provided by firebase
+     */
     pushUserData: (username, email, imageUrl) => {
         const db = getDatabase();
         push(ref(db, 'test/users/'), {
@@ -30,10 +33,16 @@ module.exports = {
             console.log(error);
         });
     },
+    /**
+     * @param string [uniqueParam] - In devlopment, want to contribute? do a pull request
+     */
     getUserData: (uniqueParam) => {
         const db = getDatabase();
         console.log(query(ref(db, 'test/users/'), equalTo(uniqueParam)));
     },
+    /**
+     * @param string [id] - Get userdata by own id
+     */
     getUserById: (id) => {
         const db = getDatabase();
         const user = ref(db, 'test/users/' + id);
@@ -48,6 +57,10 @@ module.exports = {
             console.log(error);
         });
     },
+    /**
+     * @param string [id] - user id in firebase
+     * @param object [params] - object with infos to update the user
+     */
     updateUser: (id, params) => {
         /*
          * params need be object like: { uid: 'uniqueUID', username: 'Catchaa!', ...props }
@@ -62,6 +75,9 @@ module.exports = {
             console.log(error);
         });
     },
+    /**
+     * @param string [id] - Needs user id to get and delete 
+     */
     deleteUser: (id) => {
         const db = getDatabase();
         remove(ref(db, 'test/users/' + id))
@@ -72,6 +88,9 @@ module.exports = {
                 console.log(error);
             });
     },
+    /**
+     * Simple get all users in db and return a array with the reference key and userdata
+     */
     getAllUsers: () => {
         const db = getDatabase();
         const usersRef = ref(db, 'test/users');
